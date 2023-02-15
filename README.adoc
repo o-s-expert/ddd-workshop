@@ -1,35 +1,6 @@
 = DDD in action: Strategies and tactics for Java solutions
 :toc: auto
 
+As software engineers, our only goal is to solve the problem in the most effective way possible. Being pragmatic and understanding the business is crucial for ensuring effectiveness in our field. DDD presents us with a potential path and strategy to follow in this sense. Although, despite its popularity, we can agree that the “blue” book is quite hard to understand and quite unclear regarding ways to put its ideas into action.
 
-== Why?
-
-* The reason that we're coding is the goal.
-
-Software Engineer Definition by  https://www.amazon.com/dp/B0BLXCXT3R/[Modern Software Engineering's] book:
-
-> Software Engineering is the application of an empirical, scientific approach to finding efficient, economic solutions to practical problems in software.
-
-* Rich vs Anemic model
-
-
-== DDD
-
-* Bringing the code close to the business.
-* There are tactical and strategic perspectives
-
-* *Strategic*: it's a business language: Bounded Context, ubiquitous language, context Maps.
-* *Tactical*: implementation, classes, and modules.
-
-==== Patterns
-
-* Entities: Anything with continuity through a life cycle and distinctions independent of attributes essential to the application's user.
-* Aggregator:  A DDD aggregate is a cluster of domain objects that can be treated as a single unit.
-* Value Object: Value Object is an object that represents a concept from your problem Domain.
-* Services: is used to perform domain operations and business rules
-* Repository: is used to access data from persistent stores.
-
-==== Books
-
-* https://www.amazon.com.br/dp/1098100131[Learning Domain-Driven Design: Aligning Software Architecture and Business Strategy]
-* https://www.infoq.com/minibooks/domain-driven-design-quickly/[Domain Driven Design Quickly]
+This course aims to apply the DDD concepts and design more accessible and be ready to use it the next day.
