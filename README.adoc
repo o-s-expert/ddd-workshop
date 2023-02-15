@@ -27,6 +27,7 @@ This course aims to apply the DDD concepts and design more accessible and be rea
 
 == Requirements
 
+* Git
 * Java 17 or higher
 * Maven
 * Any IDE that you know
