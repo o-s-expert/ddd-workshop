@@ -4,3 +4,11 @@
 As software engineers, our only goal is to solve the problem in the most effective way possible. Being pragmatic and understanding the business is crucial for ensuring effectiveness in our field. DDD presents us with a potential path and strategy to follow in this sense. Although, despite its popularity, we can agree that the “blue” book is quite hard to understand and quite unclear regarding ways to put its ideas into action.
 
 This course aims to apply the DDD concepts and design more accessible and be ready to use it the next day.
+
+
+== Requirements
+
+* Java 17 or higher
+* Maven
+* Any IDE that you know
+* Docker
