@@ -5,6 +5,14 @@ As software engineers, our only goal is to solve the problem in the most effecti
 
 This course aims to apply the DDD concepts and design more accessible and be ready to use it the next day.
 
+== Takeaways:
+
+
+* Learn how to apply DDD to several architectural styles, such as Microservices.
+* Learn how to create and visualize the business context through storytelling.
+* Tips and code design and patterns on DDD
+* Learn how to convert domain to code easily
+* Make your code design more readable and closer to the business
 
 == Requirements
 
