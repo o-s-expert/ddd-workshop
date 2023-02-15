@@ -14,6 +14,17 @@ This course aims to apply the DDD concepts and design more accessible and be rea
 * Learn how to convert domain to code easily
 * Make your code design more readable and closer to the business
 
+== Who
+
+* Software engineer or architect seeking to implement a good code design using Domain-Driven Design
+* All participants are expected to know Java, Git, and maven dependency
+
+== You'll learn
+
+* How to apply DDD in a project
+* How to use DDD in a project from scratch
+* How to visualize the domain using domain storytelling
+
 == Requirements
 
 * Java 17 or higher
