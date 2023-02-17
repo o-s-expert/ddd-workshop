@@ -20,6 +20,16 @@ public class Book {
 
     private MonetaryAmount price;
 
+    Book(String isbn, String title, String author,
+         Year year,
+         MonetaryAmount price) {
+
+        this.isbn = isbn;
+        this.title = title;
+        this.author = author;
+        this.year = year;
+        this.price = price;
+    }
 
     public String getIsbn() {
         return isbn;
@@ -39,5 +49,9 @@ public class Book {
 
     public MonetaryAmount getPrice() {
         return price;
+    }
+
+    public static BookBuilder builder() {
+        return new BookBuilder();
     }
 }
