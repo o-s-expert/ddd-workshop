@@ -1,4 +1,5 @@
-package expert.os.workshop.ddd.04.microprofile.config;
+package expert.os.workshop.ddd.microprofile.config;
+
 
 import org.eclipse.microprofile.config.Config;
 import org.eclipse.microprofile.config.ConfigProvider;

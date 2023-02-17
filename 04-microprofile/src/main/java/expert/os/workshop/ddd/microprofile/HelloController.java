@@ -1,4 +1,4 @@
-package expert.os.workshop.ddd.04.microprofile;
+package expert.os.workshop.ddd.microprofile;
 
 import jakarta.inject.Singleton;
 import jakarta.ws.rs.GET;
