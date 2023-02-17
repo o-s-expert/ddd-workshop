@@ -11,8 +11,6 @@ public class Ticket implements Product {
     @Identity
     private String id;
 
-    private Moviegoer moviegoer;
-
     private Movie movie;
 
     private MonetaryAmount price;
