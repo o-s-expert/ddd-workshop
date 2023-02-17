@@ -2,6 +2,7 @@ package expert.os.workshop.ddd.library;
 
 import org.javamoney.moneta.Money;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -35,5 +36,10 @@ class OrderTest {
                         .build();
 
         Mockito.when(books.search()).thenReturn(List.of(effectiveJava));
+    }
+
+    @Test
+    public void shouldBuyBook() {
+
     }
 }
