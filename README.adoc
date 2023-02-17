@@ -33,6 +33,7 @@ This course aims to apply the DDD concepts and design more accessible and be rea
 * Any IDE that you know
 * Docker
 * https://egon.io/[Egon.io]
+* https://fonts.google.com/icons?selected=Material+Icons[Icons]
 
 
 == Books
