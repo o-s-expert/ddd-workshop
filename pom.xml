@@ -24,8 +24,8 @@
         <module>01-taxi</module>
         <module>02-library</module>
         <module>03-cinema</module>
-        <module>04-microprofile</module>
+      <!--  <module>04-microprofile</module>
         <module>05-jnosql</module>
-        <module>06-microstream</module>
+        <module>06-microstream</module> -->
     </modules>
 </project>
