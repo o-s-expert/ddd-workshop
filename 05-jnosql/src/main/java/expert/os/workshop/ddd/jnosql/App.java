@@ -12,14 +12,13 @@
 package expert.os.workshop.ddd.jnosql;
 
 
-
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import jakarta.nosql.document.DocumentTemplate;
 
 import java.time.Year;
 import java.util.List;
-import java.util.Random;
+import java.util.UUID;
 
 
 public class App {
@@ -27,11 +26,9 @@ public class App {
 
     public static void main(String[] args) {
 
-        Random random = new Random();
-        long id = random.nextLong();
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
-            Book effective = new Book("1231", "Effective Java", Year.of(2012));
+            Book effective = new Book(UUID.randomUUID().toString(), "Effective Java", Year.of(2012));
             DocumentTemplate template = container.select(DocumentTemplate.class).get();
             template.insert(effective);
 
