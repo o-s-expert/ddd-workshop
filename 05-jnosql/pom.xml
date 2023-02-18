@@ -19,13 +19,12 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jnosql.version>1.0.0-b6-SNAPSHOT</jnosql.version>
+        <jnosql.version>1.0.0-SNAPSHOT</jnosql.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <maven.compile.version>3.5.1</maven.compile.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jakarta.json.version>2.1.1</jakarta.json.version>
-        <jakarta.nosql.version>1.0.0-b6-SNAPSHOT</jakarta.nosql.version>
         <weld.se.core.version>5.1.0.Final</weld.se.core.version>
         <yasson.version>3.0.2</yasson.version>
         <smallrye.config.version>3.1.1</smallrye.config.version>
