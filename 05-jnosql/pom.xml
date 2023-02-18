@@ -8,28 +8,49 @@
   ~
   ~ You may elect to redistribute this code under either of these licenses.
   -->
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>mongodb</artifactId>
-    <name>JNoSQL Demo using Java SE MongoDB</name>
 
-    <parent>
-        <groupId>org.eclipse.jnosql.mapping</groupId>
-        <artifactId>mapping-demo-java-se</artifactId>
-        <version>1.0.0-b5</version>
-    </parent>
+    <groupId>expert.os.workshop.ddd</groupId>
+    <artifactId>05-jnosql</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>05-jnosql</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jnosql.version>1.0.0-b6-SNAPSHOT</jnosql.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compile.version>3.5.1</maven.compile.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jakarta.json.version>2.1.1</jakarta.json.version>
+        <jakarta.nosql.version>1.0.0-b6-SNAPSHOT</jakarta.nosql.version>
+        <weld.se.core.version>5.1.0.Final</weld.se.core.version>
+        <yasson.version>3.0.2</yasson.version>
+        <smallrye.config.version>3.1.1</smallrye.config.version>
     </properties>
 
     <dependencies>
         <dependency>
+            <groupId>io.smallrye.config</groupId>
+            <artifactId>smallrye-config</artifactId>
+            <version>${smallrye.config.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse</groupId>
+            <artifactId>yasson</artifactId>
+            <version>${yasson.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.eclipse.jnosql.mapping</groupId>
             <artifactId>jnosql-mongodb-extension</artifactId>
-            <version>${project.version}</version>
+            <version>${jnosql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.weld.se</groupId>
+            <artifactId>weld-se-core</artifactId>
+            <version>${weld.se.core.version}</version>
         </dependency>
     </dependencies>
 
