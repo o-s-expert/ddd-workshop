@@ -32,10 +32,13 @@ public class App {
             DocumentTemplate template = container.select(DocumentTemplate.class).get();
             template.insert(effective);
 
-            List<Book> books = template.select(Book.class).where("where").eq("Effective Java")
+            List<Book> books = template.select(Book.class).where("title").eq("Effective Java")
                     .result();
             System.out.println("Entity found: " + books);
 
+            template.delete(Book.class).where("title").eq("Effective Java").execute();
+            System.out.println("Entity found: " + template.select(Book.class).where("title").eq("Effective Java")
+                    .result());
         }
     }
 
