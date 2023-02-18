@@ -1,5 +1,5 @@
 
-package org.a4j.workshop.helidon.microstream;
+package expert.os.workshop.ddd.microstream;
 
 import java.util.Set;
 
