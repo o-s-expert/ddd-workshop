@@ -1,14 +1,14 @@
 package expert.os.workshop.ddd.cinema;
 
+import org.javamoney.moneta.Money;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.internal.matchers.Or;
 
 import javax.money.CurrencyUnit;
 import javax.money.Monetary;
-
+import java.time.Year;
 import java.util.Locale;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class OrderTest {
     private Moviegoer moviegoer;
@@ -23,7 +23,11 @@ class OrderTest {
 
     @Test
     public void shouldTotal() {
-        Product ticket = new Ticket();
+        Movie movie = new Movie("Matriz", Year.of(1999));
+        Product ticket = new Ticket(movie, Money.of(10, currency));
+        Product popcorn = new Food("popcorn", Money.of(15, currency));
+        Order order = Order.of(moviegoer);
+
     }
 
 
