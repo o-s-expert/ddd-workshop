@@ -1,12 +1,13 @@
 package expert.os.workshop.ddd.cinema;
 
+import org.assertj.core.api.Assertions;
 import org.javamoney.moneta.Money;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.internal.matchers.Or;
 
 import javax.money.CurrencyUnit;
 import javax.money.Monetary;
+import javax.money.MonetaryAmount;
 import java.time.Year;
 import java.util.Locale;
 
@@ -28,6 +29,12 @@ class OrderTest {
         Product popcorn = new Food("popcorn", Money.of(15, currency));
         Order order = Order.of(moviegoer);
 
+        order.add(ticket);
+        order.add(popcorn);
+
+        MonetaryAmount total = order.total();
+        Assertions.assertThat(total)
+                .isEqualTo(Money.of(25, currency));
     }
 
 
