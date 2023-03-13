@@ -1,18 +1,16 @@
-# Microstream Microservices
+# NoSQL Microservices
+
 
 ## Introduction
 
-MicroProfile Starter has generated this MicroProfile application for you.
-
-The generation of the executable jar file can be performed by issuing the following command
 
 ```shell
 mvn clean package
 ```
-This will create an executable jar file **microstream-microservices.jar** within the _target_ maven folder. This can be started by executing the following command
+This will create an executable jar file **jnosql-microservices.jar** within the _target_ maven folder. This can be started by executing the following command
 
 ```shell
-java -jar target/microstream-microservices.jar
+java -jar target/jnosql-microservices.jar
 ```
 
 
@@ -23,7 +21,7 @@ With the dev mode, you can code along and watch the change reflected in the runn
 unit and integration tests are run on pressing Enter in the command terminal; you can attach a debugger to the running server at any time to step through your code.
 
 ```shell
-    mvn liberty:dev
+mvn liberty:dev
 ```
 
 To launch the test page, open your browser at the following URL
@@ -32,4 +30,11 @@ To launch the test page, open your browser at the following URL
 http://localhost:9080/index.html  
 ```
 
+## Using Docker
+
+1. Install docker: https://www.docker.com/
+2. https://store.docker.com/images/mongo
+3. Run docker command
+4. Run MongoDB: verify MongoDB image name with the command `docker images`, it can be mongodb or mongo, and then execute this command
+    1. `docker run -d --name mongodb-instance -p 27017:27017 mongo`
 

@@ -4,7 +4,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <groupId>expert.os.workshop.ddd</groupId>
-    <artifactId>microstream-microservices</artifactId>
+    <artifactId>microservices-jnosql</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
     <properties>
@@ -15,10 +15,9 @@
         <jaeger.client.version>1.5.0</jaeger.client.version>
         <slf4j.jdk.version>1.7.30</slf4j.jdk.version>
 
-        <final.name>microstream-microservices</final.name>
+        <final.name>jnosql-microservices</final.name>
         <slf4j.api.version>1.7.30</slf4j.api.version>
-        <microstream.data.version>0.0.1</microstream.data.version>
-        <argLine>--add-opens java.base/java.lang=ALL-UNNAMED --add-exports java.base/sun.nio.ch=ALL-UNNAMED</argLine>
+        <jnosql.version>1.0.0-b6</jnosql.version>
     </properties>
     <dependencies>
         <dependency>
@@ -29,13 +28,13 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>os.expert.integration</groupId>
-            <artifactId>microstream-jakarta-data</artifactId>
-            <version>${microstream.data.version}</version>
+            <groupId>org.eclipse.jnosql.mapping</groupId>
+            <artifactId>jnosql-mongodb-extension</artifactId>
+            <version>${jnosql.version}</version>
         </dependency>
     </dependencies>
     <build>
-        <finalName>microstream-microservices</finalName>
+        <finalName>jnosql-microservices</finalName>
     </build>
     <profiles>
         <profile>

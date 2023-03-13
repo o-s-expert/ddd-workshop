@@ -19,7 +19,7 @@ import java.util.Optional;
 
 import static jakarta.ws.rs.core.Response.Status.NOT_FOUND;
 
-@Path("/hello")
+@Path("/library")
 @RequestScoped
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
