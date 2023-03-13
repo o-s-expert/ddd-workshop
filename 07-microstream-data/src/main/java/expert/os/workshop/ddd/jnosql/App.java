@@ -34,7 +34,9 @@ public class App {
 
             List<Book> books = template.select(Book.class).where("title").eq("Effective Java")
                     .result();
-            System.out.println("Entity found: " + books);
+            System.out.println("Entity found: " + books );
+            System.out.println("The size: " + books.size());
+
 
          //   template.delete(Book.class).where("title").eq("Effective Java").execute();
             System.out.println("Entity found: " + template.select(Book.class).where("title").eq("Effective Java")
