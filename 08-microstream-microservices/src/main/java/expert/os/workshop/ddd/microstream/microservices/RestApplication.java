@@ -6,6 +6,6 @@ import jakarta.ws.rs.core.Application;
 /**
  *
  */
-@ApplicationPath("/data")
-public class MicrostreammicroservicesRestApplication extends Application {
+@ApplicationPath("/")
+public class RestApplication extends Application {
 }
