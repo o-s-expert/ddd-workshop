@@ -14,7 +14,7 @@ package expert.os.workshop.ddd.jnosql;
 
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
-import jakarta.nosql.document.DocumentTemplate;
+import jakarta.nosql.Template;
 
 import java.time.Year;
 import java.util.List;
@@ -29,14 +29,14 @@ public class App {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
             Book effective = new Book(UUID.randomUUID().toString(), "Effective Java", Year.of(2012));
-            DocumentTemplate template = container.select(DocumentTemplate.class).get();
+            Template template = container.select(Template.class).get();
             template.insert(effective);
 
             List<Book> books = template.select(Book.class).where("title").eq("Effective Java")
                     .result();
             System.out.println("Entity found: " + books);
 
-            template.delete(Book.class).where("title").eq("Effective Java").execute();
+         //   template.delete(Book.class).where("title").eq("Effective Java").execute();
             System.out.println("Entity found: " + template.select(Book.class).where("title").eq("Effective Java")
                     .result());
         }
