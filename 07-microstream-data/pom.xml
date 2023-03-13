@@ -13,7 +13,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>expert.os.workshop.ddd</groupId>
-    <artifactId>05-jnosql</artifactId>
+    <artifactId>07-microstream-data</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>05-jnosql</name>
 
