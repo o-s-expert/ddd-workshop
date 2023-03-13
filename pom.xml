@@ -28,5 +28,6 @@
         <module>05-jnosql</module>
         <module>06-microstream</module>
         <module>07-microstream-data</module>
+        <module>08-microstream-microservices</module>
     </modules>
 </project>
