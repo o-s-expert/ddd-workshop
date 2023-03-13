@@ -15,18 +15,15 @@
     <groupId>expert.os.workshop.ddd</groupId>
     <artifactId>07-microstream-data</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>05-jnosql</name>
+    <name>07-microstream-data</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jnosql.version>1.0.0-b6</jnosql.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <maven.compile.version>3.5.1</maven.compile.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jakarta.json.version>2.1.1</jakarta.json.version>
         <weld.se.core.version>5.1.0.Final</weld.se.core.version>
-        <yasson.version>3.0.2</yasson.version>
         <smallrye.config.version>3.1.1</smallrye.config.version>
     </properties>
 
@@ -35,16 +32,6 @@
             <groupId>io.smallrye.config</groupId>
             <artifactId>smallrye-config</artifactId>
             <version>${smallrye.config.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse</groupId>
-            <artifactId>yasson</artifactId>
-            <version>${yasson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jnosql.mapping</groupId>
-            <artifactId>jnosql-mongodb-extension</artifactId>
-            <version>${jnosql.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.weld.se</groupId>
