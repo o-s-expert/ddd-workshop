@@ -38,8 +38,8 @@ public class App {
             System.out.println("The size: " + books.size());
 
 
-         //   template.delete(Book.class).where("title").eq("Effective Java").execute();
-            System.out.println("Entity found: " + template.select(Book.class).where("title").eq("Effective Java")
+         template.delete(Book.class).where("title").eq("Effective Java").execute();
+            System.out.println("Entity found after delete: " + template.select(Book.class).where("title").eq("Effective Java")
                     .result());
         }
     }
