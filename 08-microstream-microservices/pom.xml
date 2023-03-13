@@ -9,11 +9,12 @@
     <packaging>war</packaging>
     <properties>
         <openliberty.maven.version>3.5.1</openliberty.maven.version>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <jaeger.client.version>1.5.0</jaeger.client.version>
         <slf4j.jdk.version>1.7.30</slf4j.jdk.version>
-        <maven.compiler.source>11</maven.compiler.source>
+
         <final.name>microstream-microservices</final.name>
         <slf4j.api.version>1.7.30</slf4j.api.version>
         <microstream.data.version>0.0.1</microstream.data.version>
