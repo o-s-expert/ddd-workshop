@@ -22,6 +22,8 @@ public class Book {
         this.year = year;
     }
 
+    Book() {
+    }
 
     public String isbn() {
         return isbn;
