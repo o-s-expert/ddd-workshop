@@ -16,6 +16,7 @@ import jakarta.ws.rs.core.Response;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static jakarta.ws.rs.core.Response.Status.NOT_FOUND;
 
@@ -31,7 +32,7 @@ public class LibraryResource {
 
     @GET
     public List<Book> findAll() {
-        return this.findAll();
+        return this.library.findAll().collect(Collectors.toUnmodifiableList());
     }
 
     @GET
@@ -43,7 +44,7 @@ public class LibraryResource {
 
     @PUT
     public void save(Book book) {
-
+        this.library.save(book);
     }
 
     @DELETE
