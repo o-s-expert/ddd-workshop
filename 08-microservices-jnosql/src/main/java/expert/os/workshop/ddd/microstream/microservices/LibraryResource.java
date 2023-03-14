@@ -43,13 +43,13 @@ public class LibraryResource {
     }
 
     @PUT
-    public void save(Book book) {
-        this.library.save(book);
+    public Book save(Book book) {
+        return this.library.save(book);
     }
 
     @DELETE
     @Path("{id}")
     public void delete(@PathParam("id") String id) {
-        this.delete(id);
+       this.library.deleteById(id);
     }
 }

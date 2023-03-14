@@ -38,3 +38,27 @@ http://localhost:9080/index.html
 4. Run MongoDB: verify MongoDB image name with the command `docker images`, it can be mongodb or mongo, and then execute this command
     1. `docker run -d --name mongodb-instance -p 27017:27017 mongo`
 
+
+## Insert data
+
+
+```shell
+curl --location --request PUT 'http://localhost:9080/library' \
+--header 'Content-Type: application/json' \
+--data-raw '{"isbn": "1231", "title": "Effective Java", "year": 2012}'
+
+
+curl --location --request PUT 'http://localhost:9080/library' \
+--header 'Content-Type: application/json' \
+--data-raw '{"isbn": "1", "title": "Modern Software Engineering: Doing What Works to Build Better Software Faster", "year": 2021}'
+
+
+curl --location --request PUT 'http://localhost:9080/library' \
+--header 'Content-Type: application/json' \
+--data-raw '{"isbn": "2", "title": "Clean Code", "year": 2008}'
+
+
+curl --location --request GET 'http://localhost:9080/library'
+
+curl --location --request DELETE 'http://localhost:9080/library/1'
+```

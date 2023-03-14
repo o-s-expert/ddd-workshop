@@ -1,40 +1,22 @@
 package expert.os.workshop.ddd.microstream.microservices;
 
+import jakarta.json.bind.annotation.JsonbCreator;
+import jakarta.json.bind.annotation.JsonbProperty;
+import jakarta.json.bind.annotation.JsonbVisibility;
 import jakarta.nosql.Column;
 import jakarta.nosql.Entity;
 import jakarta.nosql.Id;
 
-import java.time.Year;
 import java.util.Objects;
 
 @Entity
-public class Book {
-    @Id
-    private  String isbn;
-    @Column("title")
-    private String title;
-    @Column("year")
-    private Year year;
+@JsonbVisibility(PrivateVisibilityStrategy.class)
+public record Book(@Id String isbn, @Column("title") String title, @Column("year") int year) {
 
-    public Book(String isbn, String title, Year year) {
-        this.isbn = isbn;
-        this.title = title;
-        this.year = year;
-    }
 
-    Book() {
-    }
-
-    public String isbn() {
-        return isbn;
-    }
-
-    public String title() {
-        return title;
-    }
-
-    public Year year() {
-        return year;
+    @JsonbCreator
+    public static Book create(@JsonbProperty("isbn") String isbn, @JsonbProperty("title") String title, @JsonbProperty("year") int year) {
+        return new Book(isbn, title, year);
     }
 
     @Override
@@ -54,12 +36,4 @@ public class Book {
         return Objects.hashCode(isbn);
     }
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "isbn='" + isbn + '\'' +
-                ", title='" + title + '\'' +
-                ", year=" + year +
-                '}';
-    }
 }
