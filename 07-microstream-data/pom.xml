@@ -41,7 +41,7 @@
             <version>${weld.se.core.version}</version>
         </dependency>
         <dependency>
-            <groupId>os.expert.integration</groupId>
+            <groupId>expert.os.integration</groupId>
             <artifactId>microstream-jakarta-data</artifactId>
             <version>${microstream.data.version}</version>
         </dependency>
