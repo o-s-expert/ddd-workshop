@@ -1,4 +1,4 @@
-package expert.os.workshop.ddd.library;
+package expert.os.workshop.ddd.bookstore;
 
 import org.jmolecules.ddd.annotation.Entity;
 import org.jmolecules.ddd.annotation.Identity;
@@ -10,7 +10,6 @@ import java.util.Objects;
 
 @Entity
 public class Reader {
-
 
     @Identity
     private String name;
@@ -25,7 +24,6 @@ public class Reader {
         Objects.requireNonNull(order, "order is required");
         this.books.addAll(order.getBooks());
     }
-
 
     public String getName() {
         return name;
@@ -43,8 +41,8 @@ public class Reader {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Reader reader = (Reader) o;
-        return Objects.equals(name, reader.name);
+        Reader customer = (Reader) o;
+        return Objects.equals(name, customer.name);
     }
 
     @Override

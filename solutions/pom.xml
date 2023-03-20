@@ -21,7 +21,7 @@
    </properties>
  
     <modules>
-        <module>01-library</module>
+        <module>01-bookstore</module>
         <module>02-taxi</module>
         <module>03-cinema</module>
         <module>04-microprofile</module>

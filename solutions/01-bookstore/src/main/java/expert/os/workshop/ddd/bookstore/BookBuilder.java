@@ -1,4 +1,4 @@
-package expert.os.workshop.ddd.library;
+package expert.os.workshop.ddd.bookstore;
 
 import javax.money.MonetaryAmount;
 import java.time.Year;

@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>expert.os.workshop.ddd</groupId>
-    <artifactId>01-library</artifactId>
+    <artifactId>01-bookstore</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>01-library</name>
+    <name>01-bookstore</name>
     <url>http://www.os.expert</url>
 
     <properties>

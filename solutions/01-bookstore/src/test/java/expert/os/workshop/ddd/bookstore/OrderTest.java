@@ -1,4 +1,4 @@
-package expert.os.workshop.ddd.library;
+package expert.os.workshop.ddd.bookstore;
 
 import org.javamoney.moneta.Money;
 import org.junit.jupiter.api.Assertions;
