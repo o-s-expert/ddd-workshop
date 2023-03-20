@@ -1,0 +1,17 @@
+git nav:
+    - Ultra-fast persistence and Java applications: index.md
+    - ...
+jobs:
+  build:
+    name: Deploy docs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v2
+      - name: Deploy docs
+        uses: mhausenblas/mkdocs-deploy-gh-pages@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EXTRA_PACKAGES: awesome-pages
+          CONFIG_FILE: mkdocs.yml
+          REQUIREMENTS: requirements.txt
