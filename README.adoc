@@ -7,7 +7,6 @@ This course aims to apply the DDD concepts and design more accessible and be rea
 
 == Takeaways:
 
-
 * Learn how to apply DDD to several architectural styles, such as Microservices.
 * Learn how to create and visualize the business context through storytelling.
 * Tips and code design and patterns on DDD
