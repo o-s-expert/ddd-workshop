@@ -25,7 +25,7 @@ class TaximeterTest {
     public void shouldUseEconomicFlag() {
         LocalTime time = LocalTime.of(9, 0);
         Ride economic = new Ride("Aiport", "house", 1, time);
-        MonetaryAmount amount = taximeter.fare(economic);
+            MonetaryAmount amount = taximeter.fare(economic);
         Assertions.assertThat(amount).isNotNull().isEqualTo(ECONOMIC);
     }
 

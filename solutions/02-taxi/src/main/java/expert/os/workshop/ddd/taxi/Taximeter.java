@@ -24,7 +24,6 @@ public class Taximeter {
         return flag.multiply(ride.distance());
     }
 
-
     private MonetaryAmount flag(LocalTime time) {
         if (START_ECONOMIC.isBefore(time) && END_ECONOMIC.isAfter(time)) {
             return ECONOMIC;

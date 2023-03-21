@@ -34,6 +34,10 @@ theme:
   generator: false
   icon:
     repo: fontawesome/brands/github-alt
+    logo: material/library
+    admonition:
+      info: material/human-male-board
+      note: material/rocket-launch
   palette:
     - scheme: slate
       primary: blue
@@ -78,6 +82,9 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
   - attr_list
   - md_in_html
   - def_list
