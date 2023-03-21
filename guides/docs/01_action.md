@@ -1,4 +1,4 @@
-## Action 1: Getting started with Domain Storytelling 
+# 1st Action, the Bookstore: Getting Started with Domain Storytelling
 
 Using Domain Storytelling we will:
 
@@ -14,11 +14,9 @@ Using Domain Storytelling we will:
 
     It's time to join the instructor and get action! Learn while supporting and discussing with your group and instructor.
 
-### Scenario
-
+## Scenario
 
 **Business Goal:** A customer visits a bookstore and buys the desired book.
-
 
 ## Designing a Java service based on the Domain Storytelling
 
