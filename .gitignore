@@ -2,6 +2,9 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=java,maven,intellij,eclipse
 
 .DS_Store
+site
+*.idea
+/target
 
 ### Eclipse ###
 .metadata

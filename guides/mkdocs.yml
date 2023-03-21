@@ -3,7 +3,7 @@
 site_name: "DDD in Action: Strategies and tactics for Java solutions"
 site_description: "DDD in action Workshop: Strategies and tactics for Java solutions"
 site_author: "Karina Varela and Otávio Santana"
-repo_url: https://github.com/ultimate-engineer/ddd-workshop-guides
+repo_url: https://github.com/ultimate-engineer/ddd-workshop
 edit_uri: ""
 copyright: "Developed with Ultimate Sophistication"
 extra_css:
