@@ -24,7 +24,7 @@ class OrderTest {
 
     @Test
     public void shouldTotal() {
-        Movie movie = new Movie("Matriz", Year.of(1999));
+        Movie movie = new Movie("Matrix", Year.of(1999));
         Product ticket = new Ticket(movie, Money.of(10, currency));
         Product popcorn = new Food("popcorn", Money.of(15, currency));
         Order order = Order.of(moviegoer);

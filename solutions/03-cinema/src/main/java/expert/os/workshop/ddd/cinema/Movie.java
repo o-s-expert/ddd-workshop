@@ -6,5 +6,5 @@ import java.time.Year;
 
 
 @Entity
-public record Movie(String title, Year year) {
+public record Movie (String title, Year year) {
 }
