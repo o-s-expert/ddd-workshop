@@ -50,11 +50,11 @@ Our next step is to check the modeling of the application, matching the implemen
 
 ---
 
-## From a Story to the Code: the Cinema service
+### From a Story to the Code: the Cinema service
 
 In the `ddd-workshop-labs` folder, locate and open the project `03-cinema` using your chosen Java IDE;
 
-## Observe and learn 
+#### Observe and learn 
 
 1. Using your IDE or your terminal, pull the project to make sure you are have the latest version of the `ddd-workshop-labs`.
     ```shell
@@ -118,7 +118,7 @@ public void add(Product product) { //(1)
 
 4. If new products are made available, the impacts on the `Order` class should be minimal to none;
 
-## Testing the Movie Service
+#### Testing the Movie Service
 
 Now, make sure your project is working just fine.
 
@@ -152,14 +152,12 @@ INFO: Using custom MathContext: precision=256, roundingMode=HALF_EVEN
 Now, let's expand our implementation and certify the benefits of the Domain Storytelling practice and an application designed
 and developed through DDD principles. 
 
-----
-
-### Expanding the implementation
+#### Expanding the implementation
 
 Now, as a developer who recently joined the team, you've learned about the use case through the **Domain Storytelling** 
 practice.
 
-#### Next step: choosing the next implementation
+##### Next step: choosing the next enhancement
 
 At this stage, having looked at the domain diagram and existing code, do you feel comfortable when asked to 
 identify which features are still missing and choosing one to implement?
@@ -170,9 +168,7 @@ For example. As of now, the Movie Service provides the following capability:
 
 !!! question "Can you identify more scenarios to be implemented, based on the diagram `03-cinema`?"
 
-Now, let's go back to coding. 
-
-#### Next step: choosing the next implementation
+Now, let's go back to coding.
 
 - [ ] Choose one of the discussed scenarios to implement in the `03-movie` application; 
 - [ ] Use as much as you can, the terminology described in the domain diagram;
@@ -181,10 +177,12 @@ Now, let's go back to coding.
 If you need some help, next is some guidance to support you on this task. If you feel comfortable, we recommend you to try to identify and add the
 next enhancement based on your interpretation and coding only. 
 
-#### Enhancement: Allow customers to buy beverages
+##### An enhancement suggestion: Allow customers to buy beverages
 
 As of now, we only support orders with `Food`. Let's add the `Beverage` to our solution.
  
+**Start through testing the desired user story. An added value from TDD**
+
 1. Let's start with the unit test, as stated by TDD (Test Driven Development) practices. 
 Open the `test.java.expert.os.workshop.ddd.cinema.OrderTest` class;
 2. Add a new unit test called `shouldSumTotalWithBeverage`; Don't forget the "`@Test`" annotation.
@@ -213,25 +211,26 @@ Open the `test.java.expert.os.workshop.ddd.cinema.OrderTest` class;
     2. Adds the beverage "soda" to the order;
     3. Asserts that the total now includes the beverage cost;
 
-#### Adding the beverage model
+**Creating a beverage model that meets the test requirements**
 
 Now, your application is breaking, as expected. It's time to create the entity `Beverage`.
 
-1. In the package `expert.os.workshop.ddd.cinema`, create a new class called `Beverage.java`. It can look as the sample below. 
-Notice we can rely on the `Product` interface to garantee it will behave as expecteed for a `Product` in this domain.
-```java
-package expert.os.workshop.ddd.cinema;
-
-import javax.money.MonetaryAmount;
-
-public record Beverage (String name, MonetaryAmount price) implements Product { }
-```
+1. In the package `expert.os.workshop.ddd.cinema`, create a new class called `Beverage.java`. It can look as the sample below.
+      ```java
+      package expert.os.workshop.ddd.cinema;
+      
+      import javax.money.MonetaryAmount;
+      
+      public record Beverage (String name, MonetaryAmount price) implements Product { }
+      ``` 
+      Notice we can rely on the `Product` interface to garantee it will behave as expecteed for a `Product` in this domain.
 2. Using your IDE or a command line, run the maven test and check the resulting output.
     ```shell
     mvn clean test
     ```
 
-Did it work? Why did the price was correctly calculated even though we didn't add new business logic to the order?
+If everything is right, it should have executed successfully.  
+Why did the price was correctly calculated even though we didn't add new business logic to the order?
 
 ----
 ## Congratulations!
