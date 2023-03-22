@@ -8,58 +8,64 @@ In this exercise you will see how the concepts of **bounded context** and **cont
 
 ## Exercise goals
 
-- [ ] Fix and Complete the domain storytelling diagram;
-- [ ] As a developer, explore the existing project and evaluate implementation choices;
-- [ ] Implement one missing need described in the diagram, in the application; 
-
-## Scenario
-
-**Business Goal:** As a moviegoer, I want to go to the movie theater, buy a ticket, maybe get some snacks and drinks, and watch the chosen movie.
-
---- 
-## Practicing Domain Storytelling
- 
-Use [Egon](https://egon.io/) to map this story while you explore it using Domain Storytelling.
+- [ ] Fix and Complete the domain storytelling diagram (`storytelling/03-cinema`) ;
+- [ ] As a developer, explore the existing project (`03-cinema`) and evaluate code design and implementation choices;
+- [ ] Implement and test one of the missing features described in the diagram, in the existing application;
 
 The outcome of this practice should be a **diagram** representation of the **Movie** use case and its respective **java service**.
 
-### Getting Started
+## Scenario
+
+**Business Goal:** As a moviegoer, I want to go to the movie theater, buy a ticket, maybe get some popcorn and soda, and watch the chosen movie.
+
+## Practicing Domain Storytelling
 
 1. Using your browser, access [Egon.io](http://egon.io)
-2. Import the diagram located under `ddd-workshop-labs/storytelling/03-movies.dst`
-3. It should look like this:
+2. Import the diagram located under `ddd-workshop-labs/storytelling/03-cinema.dst`
+
+    **But wait... it looks like there's something wrong with it!**
 
     ![03-movie-domain-diagram.png](images/03-movie-domain-diagram.png)
 
-3. Complete the domain by exploring the use case, asking questions or discussing with other attendees;
+Luckily, we can use your help to help us fix this diagram and reduce bugs on the final application.
 
-Make sure you complete the following tasks:
+### Adjusting the model to match the real user need
 
-- [ ] Some actions are certainly missing in this diagram. Which actions should be mapped for the `moviegoer` that are not represented? 
-- [ ] Describe in the diagram, the `sequence order` of each action. 
-    - _To change a group sequence, you can double-click on the association arrow and set your input data;_
-- [ ] Are there optional items? Add a `text annotation` to highlight this characteristic.
+Revisit the diagram and identify which are adjustments that must be done to have a real representation of the user's need;
+
+To explore the use case, rely on the instructor (business person representation) to ask questions to the instructor _or_ discussing with other attendees;
+
+Make sure you pay attention to these items and meet the following requirements:
+   
+- [ ] Some actions are certainly missing in this diagram. (_Which actions should be mapped for the actors, and are not represented?_) 
+- [ ] Describe in the diagram, the `sequence order` of each action. (_To change a group sequence, you can double-click on the association arrow and set your input data;_)
+- [ ] Are there optional items? Add a `text annotation` to highlight this characteristic. 
+
     ![03-text-annotation-icon.png](images/03-text-annotation-icon.png)
 
-  
 Once you're satisfied with the domain map, and you feel like it covers the use case story accordingly, you are ready to
-start designing you Java service.
+move forward and start designing you Java service.
  
-Our next step is to practice the modeling of the application, matching the implementation with the domain exploration details.
+Our next step is to check the modeling of the application, matching the implementation with the domain exploration details.
 
 ---
 
-## From Story to Code: the Movie service
+## From a Story to the Code: the Cinema service
 
-
-1. In the `ddd-workshop-labs` folder, locate and open the project `03-movies` using your chosen Java IDE;
+In the `ddd-workshop-labs` folder, locate and open the project `03-cinema` using your chosen Java IDE;
 
 ## Observe and learn 
 
+1. Using your IDE or your terminal, pull the project to make sure you are have the latest version of the `ddd-workshop-labs`.
+    ```shell
+    cd ddd-workshop-labs
+    git pull origin main    
+    ```
+   
 2. Open the test class `expert.os.workshop.ddd.cinema.OrderTest`; 
-3. Now evaluate the following items:
-   4. Is this test is validating the user story previously described? If not, what are your ideas to adjust it?
-   5. In this unit test, we can notice the following validation:
+3. Now notice the following items:
+    4. Is this test is validating the user story previously described? If not, what are your ideas to adjust it?
+    5. In this unit test, we can notice the following validation:
    
 ```java linenums="1"
     Movie movie = new Movie("Matrix", Year.of(1999)); //(1)
@@ -83,28 +89,30 @@ Our next step is to practice the modeling of the application, matching the imple
 6. The `Moviegoer` needs to pay for the total amount of this order;
 7. Assures the total `Order` cost is compliant to the business rules; 
 
-The test validates one of the paths of our storytelling: a user should be able to acquire movie theater tickets
-and snacks in order to watch the movie.
+The test validates one of the paths of our storytelling: _a user should be able to acquire movie theater tickets
+and snacks in order to watch the movie._
 
-Due to the domain exploration, you probably feel comfortable when reading this text - a result of 
+Due to the domain exploration you've done while adjusting the errors on the domain diagram, 
+you probably feel comfortable when reading this text - a result of 
 the usage of ubiquitous language across business conversations and the technology scope.
 
 Now, before finishing this project's implementation, navigate through the project and notice the following details:
 
-1. Entities such as `Moviegoer` and `Movie` are mapped with `org.jmolecules.ddd.annotation.@Entity`. How can this class setting be helpful?
+!!! question "Entities such as `Moviegoer` and `Movie` are mapped with `org.jmolecules.ddd.annotation.@Entity`. How can this annotation be helpful?"
 
-2. The products sold by this movie theater are defined by the `Interface` named `Product`. 
+The products sold by this movie theater are defined by the `Interface` named `Product`. 
 ```java
 public record Food (String name, MonetaryAmount price) implements Product {}
 public record Ticket (Movie movie, MonetaryAmount price) implements Product { }
 ```
 
-3. Because we're relying on OOP abstraction, in the `Order` class, adding a new product is really simple to write, understand and maintain:
+Notice that by relying on the power of abstraction and CDI, adding a new product using the `Order` class is really simple: 
+either while writing, reading or maintaining the code.
 
 ```java linenums="1"
 public void add(Product product) { //(1)
-    Objects.requireNonNull(product,"product is required");
-    this.products.add(product);
+  Objects.requireNonNull(product,"product is required");
+  this.products.add(product);
 }
 ```
 
@@ -114,10 +122,11 @@ public void add(Product product) { //(1)
 
 Now, make sure your project is working just fine.
 
-1. Using your IDE or your terminal, run the following command:
+1. Run the following commands:
 
     ```java
-    mvn clean package
+    cd 03-cinema
+    mvn clean package 
     ```
 
 You should see one test executed successfully, as well as the project build.  
@@ -159,7 +168,7 @@ For example. As of now, the Movie Service provides the following capability:
 
 > A `Moviegoer` registers an `Order` containing a `Ticket` and `Food`, and is informed the total cost;
 
-!!! question "Can you identify more scenarios to be implemented, based on the diagram `03-movies`?"
+!!! question "Can you identify more scenarios to be implemented, based on the diagram `03-cinema`?"
 
 Now, let's go back to coding. 
 
