@@ -27,4 +27,3 @@ Publish:
 mkdocs gh-deploy --force
 
 
-

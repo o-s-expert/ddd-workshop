@@ -37,5 +37,21 @@ class OrderTest {
                 .isEqualTo(Money.of(25, currency));
     }
 
+    @Test
+    public void shouldTotalWithBeverage() {
+        Movie movie = new Movie("Avatar", Year.of(2022));
+        Product ticket = new Ticket(movie, Money.of(10, currency));
+        Product popcorn = new Food("popcorn", Money.of(15, currency));
+        Product soda = new Beverage("soda", Money.of(5, currency));
+        Order order = Order.of(moviegoer);
+
+        order.add(ticket);
+        order.add(popcorn);
+        order.add(soda);
+
+        MonetaryAmount total = order.total();
+        Assertions.assertThat(total)
+                .isEqualTo(Money.of(30, currency));
+    }
 
 }

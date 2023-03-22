@@ -8,7 +8,9 @@ In this exercise you will see how the concepts of **bounded context** and **cont
 
 ## Exercise goals
 
-WIP
+- [ ] Fix and Complete the domain storytelling diagram;
+- [ ] As a developer, explore the existing project and evaluate implementation choices;
+- [ ] Implement one missing need described in the diagram, in the application; 
 
 ## Scenario
 
@@ -23,12 +25,12 @@ The outcome of this practice should be a **diagram** representation of the **Mov
 
 ### Getting Started
 
-!!! tip "TIP: Shedding light on solutions"
-
-    ... 
-
 1. Using your browser, access [Egon.io](http://egon.io)
 2. Import the diagram located under `ddd-workshop-labs/storytelling/03-movies.dst`
+3. It should look like this:
+
+    ![03-movie-domain-diagram.png](images/03-movie-domain-diagram.png)
+
 3. Complete the domain by exploring the use case, asking questions or discussing with other attendees;
 
 Make sure you complete the following tasks:
@@ -39,8 +41,7 @@ Make sure you complete the following tasks:
 - [ ] Are there optional items? Add a `text annotation` to highlight this characteristic.
     ![03-text-annotation-icon.png](images/03-text-annotation-icon.png)
 
-
-
+  
 Once you're satisfied with the domain map, and you feel like it covers the use case story accordingly, you are ready to
 start designing you Java service.
  
@@ -52,6 +53,9 @@ Our next step is to practice the modeling of the application, matching the imple
 
 
 1. In the `ddd-workshop-labs` folder, locate and open the project `03-movies` using your chosen Java IDE;
+
+## Observe and learn 
+
 2. Open the test class `expert.os.workshop.ddd.cinema.OrderTest`; 
 3. Now evaluate the following items:
    4. Is this test is validating the user story previously described? If not, what are your ideas to adjust it?
@@ -87,12 +91,13 @@ the usage of ubiquitous language across business conversations and the technolog
 
 Now, before finishing this project's implementation, navigate through the project and notice the following details:
 
-1. The products sold by this movie theater are defined by the `Interface` named `Product`. 
+1. Entities such as `Moviegoer` and `Movie` are mapped with `org.jmolecules.ddd.annotation.@Entity`. How can this class setting be helpful?
+
+2. The products sold by this movie theater are defined by the `Interface` named `Product`. 
 ```java
 public record Food (String name, MonetaryAmount price) implements Product {}
 public record Ticket (Movie movie, MonetaryAmount price) implements Product { }
 ```
-2. Entities such as `Moviegoer` and `Movie` are mapped with `org.jmolecules.ddd.annotation.@Entity`.   
 
 3. Because we're relying on OOP abstraction, in the `Order` class, adding a new product is really simple to write, understand and maintain:
 
@@ -102,10 +107,123 @@ public void add(Product product) { //(1)
     this.products.add(product);
 }
 ```
-    
-1. If new products are made available, the impacts on the `Order` class should be minimal to none;
+
+4. If new products are made available, the impacts on the `Order` class should be minimal to none;
+
+## Testing the Movie Service
+
+Now, make sure your project is working just fine.
+
+1. Using your IDE or your terminal, run the following command:
+
+    ```java
+    mvn clean package
+    ```
+
+You should see one test executed successfully, as well as the project build.  
+```shell
+-------------------------------------------------------
+[INFO] Running expert.os.workshop.ddd.cinema.OrderTest
+Mar 21, 2023 7:39:08 PM org.javamoney.moneta.DefaultMonetaryContextFactory createMonetaryContextNonNullConfig
+INFO: Using custom MathContext: precision=256, roundingMode=HALF_EVEN
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 s - in expert.os.workshop.ddd.cinema.OrderTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.407 s
+[INFO] Finished at: 2023-03-21T19:39:09-03:00
+[INFO] ------------------------------------------------------------------------
+```
+
+Now, let's expand our implementation and certify the benefits of the Domain Storytelling practice and an application designed
+and developed through DDD principles. 
 
 ----
-Your task is to wrap up the implementation of this project. #wip
 
+### Expanding the implementation
 
+Now, as a developer who recently joined the team, you've learned about the use case through the **Domain Storytelling** 
+practice.
+
+#### Next step: choosing the next implementation
+
+At this stage, having looked at the domain diagram and existing code, do you feel comfortable when asked to 
+identify which features are still missing and choosing one to implement?
+
+For example. As of now, the Movie Service provides the following capability:
+
+> A `Moviegoer` registers an `Order` containing a `Ticket` and `Food`, and is informed the total cost;
+
+!!! question "Can you identify more scenarios to be implemented, based on the diagram `03-movies`?"
+
+Now, let's go back to coding. 
+
+#### Next step: choosing the next implementation
+
+- [ ] Choose one of the discussed scenarios to implement in the `03-movie` application; 
+- [ ] Use as much as you can, the terminology described in the domain diagram;
+- [ ] Implement a unit test to confirm your solution is working. 
+
+If you need some help, next is some guidance to support you on this task. If you feel comfortable, we recommend you to try to identify and add the
+next enhancement based on your interpretation and coding only. 
+
+#### Enhancement: Allow customers to buy beverages
+
+As of now, we only support orders with `Food`. Let's add the `Beverage` to our solution.
+ 
+1. Let's start with the unit test, as stated by TDD (Test Driven Development) practices. 
+Open the `test.java.expert.os.workshop.ddd.cinema.OrderTest` class;
+2. Add a new unit test called `shouldSumTotalWithBeverage`; Don't forget the "`@Test`" annotation.
+3. The test can look like this:
+    
+    ```java linenums="40"
+        @Test
+        public void shouldTotalWithBeverage() {
+            Movie movie = new Movie("Avatar", Year.of(2022));
+            Product ticket = new Ticket(movie, Money.of(10, currency));
+            Product popcorn = new Food("popcorn", Money.of(15, currency));
+            Product soda = new Beverage("soda", Money.of(5, currency));  //(1)
+            Order order = Order.of(moviegoer);
+    
+            order.add(ticket);
+            order.add(popcorn);
+            order.add(soda); //(2)
+    
+            MonetaryAmount total = order.total();
+            Assertions.assertThat(total)
+                    .isEqualTo(Money.of(30, currency)); //(3)
+        }
+    ```
+
+    1. Creates a new beverage abstrated as a product
+    2. Adds the beverage "soda" to the order;
+    3. Asserts that the total now includes the beverage cost;
+
+#### Adding the beverage model
+
+Now, your application is breaking, as expected. It's time to create the entity `Beverage`.
+
+1. In the package `expert.os.workshop.ddd.cinema`, create a new class called `Beverage.java`. It can look as the sample below. 
+Notice we can rely on the `Product` interface to garantee it will behave as expecteed for a `Product` in this domain.
+```java
+package expert.os.workshop.ddd.cinema;
+
+import javax.money.MonetaryAmount;
+
+public record Beverage (String name, MonetaryAmount price) implements Product { }
+```
+2. Using your IDE or a command line, run the maven test and check the resulting output.
+    ```shell
+    mvn clean test
+    ```
+
+Did it work? Why did the price was correctly calculated even though we didn't add new business logic to the order?
+
+----
+## Congratulations!
+You've done a great job so far. Let's keep on adding new concepts and technologies to our exercises.
