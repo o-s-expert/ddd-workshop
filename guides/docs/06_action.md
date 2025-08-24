@@ -60,8 +60,8 @@ CDI dependencies (weld).
 ```xml linenums="44"
 <!--        Add JNoSQL dependency-->
 <dependency>
-    <groupId>org.eclipse.jnosql.mapping</groupId>
-    <artifactId>jnosql-mongodb-extension</artifactId>
+    <groupId>org.eclipse.jnosql.databases</groupId>
+    <artifactId>jnosql-mongodb</artifactId>
     <version>${jnosql.version}</version>
 </dependency>
 
