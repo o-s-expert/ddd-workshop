@@ -9,7 +9,7 @@ Most of the workshop exercises involves usage of tools such as:
 
 * Maven CLI;
 * Git CLI;
-* Java 17;
+* Java 21;
 * An IDE of your preference;
 * Command line (terminal). _If using Windows, PowerShell is recommended;_
 * REST client tools like cURL or postman _(Optional)_;
@@ -23,21 +23,21 @@ git --version
 To validate your environment, confirm you have as an output of the commands above working:
 ```shell
 $ java -version
-openjdk version "17.0.6" 2023-01-17
-OpenJDK Runtime Environment Temurin-17.0.6+10 (build 17.0.6+10)
-OpenJDK 64-Bit Server VM Temurin-17.0.6+10 (build 17.0.6+10, mixed mode)
+openjdk version "21.0.7" 2025-04-15 LTS
+OpenJDK Runtime Environment Temurin-21.0.7+6 (build 21.0.7+6-LTS)
+OpenJDK 64-Bit Server VM Temurin-21.0.7+6 (build 21.0.7+6-LTS, mixed mode, sharing)
 
 
 $ mvn -version
-Apache Maven 3.9.0 (9b58d2bad23a66be161c4664ef21ce219c2c8584)
-Maven home: /opt/homebrew/Cellar/maven/3.9.0/libexec
-Java version: 19.0.2, vendor: Homebrew, runtime: /opt/homebrew/Cellar/openjdk/19.0.2/libexec/openjdk.jdk/Contents/Home
-Default locale: en_BR, platform encoding: UTF-8
-OS name: "mac os x", version: "13.0.1", arch: "aarch64", family: "mac"
+Apache Maven 3.9.9 (8e8579a9e76f7d015ee5ec7bfcdc97d260186937)
+Maven home: /Users/otaviosantana/.sdkman/candidates/maven/current
+Java version: 21.0.7, vendor: Eclipse Adoptium, runtime: /Users/otaviosantana/.sdkman/candidates/java/21.0.7-tem
+Default locale: en_US, platform encoding: UTF-8
+OS name: "mac os x", version: "15.6.1", arch: "aarch64", family: "mac"
 
 
 $ git --version
-git version 2.37.1 (Apple Git-137.1)
+git version 2.39.5 (Apple Git-154)
 ```
 
 ## Prepare your working directory
