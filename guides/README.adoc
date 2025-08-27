@@ -1,29 +1,34 @@
-# DDD in action Workshop: Strategies and tactics for Java solutions 
+= DDD in Action Workshop: Strategies and Tactics for Java Solutions
+:toc: autto
 
 Access at: https://architects4j.github.io/ddd-workshop
 
-## Contributing to this project
+== Contributing to this project
 
-This guide is based on mkdocs.
+This guide is based on *mkdocs*.
 
-Want to contribute? 
+Want to contribute?
 
-Clone this repository, setup your environment and start coding! 
-Contributions are welcome.
+Clone this repository, set up your environment, and start coding! Contributions are welcome.
 
-```
+[source,shell]
+----
 git clone https://github.com/ultimate-engineer/ddd-workshop.git
 cd guide
 pip install -r requirements.txt
-```
+----
 
-After cloning this repo and during development check the changes. It will start the live-reloading docs server.
+After cloning this repo and during development, check the changes.
+It will start the live-reloading docs server.
 
-```
+[source,shell]
+----
 mkdocs serve
-````
+----
 
 Publish:
+
+[source,shell]
+----
 mkdocs gh-deploy --force
-
-
+----
