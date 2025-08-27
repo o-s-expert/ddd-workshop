@@ -1,7 +1,7 @@
 = DDD in Action Workshop: Strategies and Tactics for Java Solutions
 :toc: autto
 
-Access at: https://architects4j.github.io/ddd-workshop
+Access at: https://o-s-expert.github.io/ddd-workshop/
 
 == Contributing to this project
 
@@ -13,7 +13,7 @@ Clone this repository, set up your environment, and start coding! Contributions 
 
 [source,shell]
 ----
-git clone https://github.com/ultimate-engineer/ddd-workshop.git
+git clone git@github.com:o-s-expert/ddd-workshop.git
 cd guide
 pip install -r requirements.txt
 ----
