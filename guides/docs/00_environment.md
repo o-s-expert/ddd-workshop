@@ -13,6 +13,7 @@ Most of the workshop exercises involves usage of tools such as:
 * An IDE of your preference;
 * Command line (terminal). _If using Windows, PowerShell is recommended;_
 * REST client tools like cURL or postman _(Optional)_;
+* Docker and Docker Compose.
 
 ```shell
 java -version
@@ -38,6 +39,12 @@ OS name: "mac os x", version: "15.6.1", arch: "aarch64", family: "mac"
 
 $ git --version
 git version 2.39.5 (Apple Git-154)
+
+❯ docker --version
+Docker version 28.3.2, build 578ccf6
+
+❯ docker compose version
+Docker Compose version v2.39.1-desktop.1
 ```
 
 ## Prepare your working directory
