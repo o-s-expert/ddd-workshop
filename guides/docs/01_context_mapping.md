@@ -20,4 +20,44 @@ flowchart LR
   B1 --- SK
 ```
 
-    
+## Customer–Supplier
+
+> The downstream (customer) depends on the upstream (supplier) and can influence its priorities or features.
+
+```mermaid
+flowchart LR
+    subgraph U["Upstream (Supplier)"]
+        U1[Payments Service]
+    end
+
+    subgraph D["Downstream (Customer)"]
+        D1[Orders Service]
+    end
+
+    U1 -- "Provides functionality" --> D1
+    D1 -- "Influences requirements" --> U1
+```
+
+## Conformist
+
+> The downstream has no influence and must fully adapt to the upstream model as it is.
+
+
+```mermaid
+flowchart LR
+  subgraph U["Upstream Context"]
+    U1[Payments]
+  end
+
+  PL[(Published Model / Contract)]
+
+  subgraph D["Downstream Context"]
+    D1[Orders]
+  end
+
+  U1 -- "Owns & defines" --> PL
+  D1 -- "Conforms to" --> PL
+  D1 -. "No influence on Upstream" .- U1
+  D1 -. "No influence on Downstream" .- U1
+  ```
+
