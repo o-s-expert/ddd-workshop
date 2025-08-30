@@ -147,6 +147,18 @@ classDiagram
 > Represents a significant occurrence in the domain, capturing a past fact and enabling communication across the system.
 
 ```mermaid
+classDiagram
+  class Order {
+    <<aggregate root>>
+    +id : UUID
+    +confirm() : void
+  }
 
+  class OrderConfirmedEvent {
+    <<domain event>>
+    +orderId : UUID
+    +occurredOn : DateTime
+  }
+  Order --> OrderConfirmedEvent : "publishes"
 ```
 
