@@ -1,4 +1,4 @@
-# Understanding Context Mapping
+# 1 Understanding Context Mapping
 
 To see the diagrams properly, please open them in [Mermaid Live Editor](https://mermaid-js.github.io/mermaid-live-editor).
 

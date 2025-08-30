@@ -1,4 +1,4 @@
-# 3rd Action, the Movie: Establishing Boundaries and Context Mapping  
+# 2rd Action, the Movie: Establishing Boundaries and Context Mapping  
 
 In this exercise you will see how the concepts of **bounded context** and **context mapping** can be applied in real life. 
 

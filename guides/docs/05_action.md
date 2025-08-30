@@ -1,4 +1,4 @@
-# 6th Action Java, NoSQL and DDD: Abstracting business away from your db solution    
+# 3th Action Java, NoSQL and DDD: Abstracting business away from your db solution    
 
 In this exercise you will learn how to abstract your domain data from the technical implementation details related to 
 database persistence, most specifically, non-relational persistence storage with NoSQL

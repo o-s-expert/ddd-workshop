@@ -1,4 +1,4 @@
-# 2nd Action, the Taxi: a Domain Storytelling exercise 
+# 1nd Action, the Taxi: a Domain Storytelling exercise 
 
 In this exercise you can validate and practice your knowledge of the following concepts:
 

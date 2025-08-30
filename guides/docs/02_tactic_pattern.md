@@ -1,4 +1,4 @@
-# Tactic Patterns
+# 2 Tactic Patterns
 
 To see the diagrams properly, please open them in [Mermaid Live Editor](https://mermaid-js.github.io/mermaid-live-editor).
 
