@@ -162,3 +162,30 @@ classDiagram
   Order --> OrderConfirmedEvent : "publishes"
 ```
 
+## Application Service - Orchestrating Use Cases
+
+
+> An application service coordinates workflows by invoking domain objects and repositories, ensuring the correct sequence of operations. It manages transactions, orchestration, and security while delegating all business rules to the domain layer, keeping the domain pure and exposing use cases to the outside world.
+
+```mermaid
+classDiagram
+    class Order {
+<<aggregate root>>
++id : UUID
++confirm() : void
+}
+
+class OrderRepository {
+<<repository>>
++findById(id: UUID) : Order
++save(order: Order) : void
+}
+
+class OrderApplicationService {
+<<application service>>
++confirmOrder(orderId: UUID) : void
+}
+
+OrderApplicationService --> OrderRepository : uses
+OrderApplicationService --> Order : orchestrates
+```
