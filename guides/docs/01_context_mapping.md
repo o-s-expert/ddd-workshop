@@ -82,3 +82,24 @@ U1 -- "Provides Model" --> ACL
 ACL -- "Translates & Protects" --> D1
 D1 -. "Own domain language preserved" .- D1
  ```
+
+## Published Language
+
+> Teams agree on a shared, well-defined communication language or schema to integrate smoothly.
+ 
+```mermaid
+```
+
+## Separate Ways
+
+> Contexts remain isolated, evolving independently without integration.
+
+```mermaid
+```
+
+## Open Host Service
+
+> The upstream provides a well-defined API or protocol that multiple downstreams can consume without tight coupling.
+
+```mermaid
+```
