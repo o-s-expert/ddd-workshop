@@ -8,3 +8,5 @@ mkdocs-enumerate-headings-plugin
 mkdocs-git-committers-plugin
 mkdocs-git-revision-date-localized-plugin
 mkdocs-git-revision-date-plugin
+mkdocs-mermaid2-plugin>=1.1.1
+pymdown-extensions>=10.8
