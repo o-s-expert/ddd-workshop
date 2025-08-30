@@ -106,7 +106,19 @@ OrderRepository --> Order : returns/manages
 > A mechanism that encapsulates complex creation logic, ensuring invariants are satisfied when building aggregates or entities.
 
 ```mermaid
+classDiagram
+  class Order {
+    <<aggregate root>>
+    +id : UUID
+    -status : OrderStatus
+  }
 
+  class OrderFactory {
+    <<factory>>
+    +create(customerId: UUID) : Order
+    +reconstruct(id: UUID, status: OrderStatus) : Order
+  }
+  OrderFactory --> Order : creates
 ```
 
 ## Domain Service – Logic Without a Home
