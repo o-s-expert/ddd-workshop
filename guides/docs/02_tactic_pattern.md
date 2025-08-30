@@ -9,7 +9,13 @@ Or you can use the following link: https://github.com/o-s-expert/ddd-workshop/bl
 > An object defined by a unique identity that persists over time, even if its attributes change.
 
 ```mermaid
-
+classDiagram
+  class Customer {
+    +id : UUID
+    -name : String
+    -email : String
+    +changeEmail(newEmail) : void
+  }
 ```
 
 
