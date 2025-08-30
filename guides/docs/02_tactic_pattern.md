@@ -43,6 +43,37 @@ classDiagram
 > A cluster of entities and value objects treated as a single unit, with a root entity ensuring business rules and consistency.
 
 ```mermaid
+classDiagram
+  class Order {
+    <<aggregate root>>
+    +id : UUID
+    -status : OrderStatus
+    -items : List~OrderItem~
+    +addItem(product: Product, quantity: int) : void
+    +changeItemQuantity(product: Product, quantity: int) : void
+    +removeItem(product: Product) : void
+    +confirm() : void
+    -enforceInvariants() : void
+  }
+
+  class OrderItem {
+    <<entity>>
+    +id : UUID
+    -product : Product
+    -quantity : int
+  }
+
+  class Product {
+    <<entity>>
+    +id : UUID
+    +name : String
+  }
+
+  class OrderStatus
+
+  Order "1" o-- "1..*" OrderItem
+  OrderItem --> Product
+  Order --> OrderStatus
 
 ```
 
