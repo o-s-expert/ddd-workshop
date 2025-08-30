@@ -65,35 +65,3 @@ docker-compose up -d
 ```
 
 The build and packaging should complete successfully.
-
-## Using Egon for Domain Modeling (Optional)
-
-In this workshop, you will use Egon.io to model the domain and its elements throughout the exercises. 
-
-Throughout the exercises, you will handle different use cases in different domains. Each domain is represented in a 
-different diagram.  
-
-![egon import settings](images/00-egon-import-diagram.png)
-
-During the exercises, you'll be instructed to import the respective diagram files in Egon. The file ends with `.
-dst` extension, and once imported, you'll have in Egon preconfigured diagram with icons and elements settings.
-
-### (Optional) Extra icons and configurations 
-
-The workshop uses extra icons not available by default in the tool. In case you want to add extra icons or change 
-the icon's type (e.g. from `Actor` to `WorkObject` ) you can do that in the tool's settings. 
-See details below:
-
-1. Using your browser, navigate to https://egon.io/app/
-2. In the top-right corner, click on the **Settings** icon;
-   ![egon settings](images/00-egon-settings.png)
-3. Now, you can upload the icons of our domain:
-   1. Click on the **"Upload Custom Icons"** button;
-   2. Locate the `ddd-workshop-labs` project you have cloned on the previous step. 
-   3. Select and upload your custom icon, or all icons located in the directory:
-      ```ddd-workshop-labs/storytelling/icons```
-4. Now, upload the icons settings. Each icon can be configured to be used as an `actor` or a `work object`. These 
-   settings are already configured for you. Click on the *"import icon configuration"* icon:
-   ![egon import settings](images/00-egon-import-icon-settings.png)
-5. Save your configurations.  
-
