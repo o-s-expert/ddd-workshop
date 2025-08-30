@@ -61,3 +61,24 @@ flowchart LR
   D1 -. "No influence on Downstream" .- U1
   ```
 
+## Anticorruption Layer
+
+> The downstream isolates its domain by translating the upstream model, preventing external concepts from leaking in.
+
+
+```mermaid
+flowchart LR
+subgraph U["Upstream Context"]
+U1[Payments]
+end
+
+subgraph D["Downstream Context"]
+D1[Orders]
+end
+
+ACL["`Anticorruption Layer`"]
+
+U1 -- "Provides Model" --> ACL
+ACL -- "Translates & Protects" --> D1
+D1 -. "Own domain language preserved" .- D1
+ ```
