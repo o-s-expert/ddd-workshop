@@ -82,6 +82,21 @@ classDiagram
 > An abstraction that provides controlled access to aggregates, handling persistence while keeping the domain pure.
 
 ```mermaid
+classDiagram
+    class Order {
+<<aggregate root>>
++id : UUID
+}
+
+class OrderRepository {
+<<interface>>
++save(order: Order) : void
++findById(id: UUID) : Order?
++delete(id: UUID) : void
++findByCustomer(customerId: UUID) : List~Order~
+}
+
+OrderRepository --> Order : returns/manages
 
 ```
 
