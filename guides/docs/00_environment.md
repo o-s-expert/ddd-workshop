@@ -55,6 +55,7 @@ To get the foundation projects and build them, execute:
 git clone https://github.com/ultimate-engineer/ddd-workshop-labs
 cd ddd-workshop-labs
 mvn clean package
+docker-compose up -d
 ```
 
 The build and packaging should complete successfully.
