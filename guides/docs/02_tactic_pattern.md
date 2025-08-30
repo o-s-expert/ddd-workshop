@@ -126,7 +126,20 @@ classDiagram
 > Encapsulates domain behavior that does not naturally belong to an entity or value object, but is still part of the core domain.
 
 ```mermaid
+classDiagram
+  class Order {
+    <<aggregate root>>
+    +id : UUID
+    -status : OrderStatus
+  }
 
+  class OrderPricingService {
+    <<domain service>>
+    +calculateTotal(order: Order) : Money
+    +applyBusinessRules(order: Order) : void
+  }
+
+  OrderPricingService --> Order : operates on
 ```
 
 ## Domain Event – Something Happened
