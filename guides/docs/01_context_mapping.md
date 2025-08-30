@@ -88,6 +88,23 @@ D1 -. "Own domain language preserved" .- D1
 > Teams agree on a shared, well-defined communication language or schema to integrate smoothly.
  
 ```mermaid
+flowchart LR
+  subgraph U["Upstream Context"]
+    U1[Payments Supplier]
+  end
+
+  PL[(Published Language<br/>OpenAPI / Avro / JSON Schema)]
+
+  subgraph D["Downstream Contexts"]
+    D1[Orders Customer]
+    D2[Analytics]
+    D3[Billing Reconciliation]
+  end
+
+  U1 -- Publishes --> PL
+  D1 -- Consumes --> PL
+  D2 -- Consumes --> PL
+  D3 -- Consumes --> PL
 ```
 
 ## Separate Ways
@@ -95,6 +112,16 @@ D1 -. "Own domain language preserved" .- D1
 > Contexts remain isolated, evolving independently without integration.
 
 ```mermaid
+flowchart LR
+  subgraph A["Context A"]
+    A1[Payments]
+  end
+
+  subgraph B["Context B"]
+    B1[Orders]
+  end
+
+  A -. "No integration" .- B
 ```
 
 ## Open Host Service
@@ -102,4 +129,19 @@ D1 -. "Own domain language preserved" .- D1
 > The upstream provides a well-defined API or protocol that multiple downstreams can consume without tight coupling.
 
 ```mermaid
+flowchart LR
+  subgraph U["Upstream Context"]
+    U1[Payments Service]
+  end
+
+  OHS[(Open Host Service<br/>Public API / Protocol)]
+
+  subgraph D["Downstream Contexts"]
+    D1[Orders]
+    D2[Analytics]
+  end
+
+  U1 -- "Exposes API" --> OHS
+  D1 -- "Consumes API" --> OHS
+  D2 -- "Consumes API" --> OHS
 ```
