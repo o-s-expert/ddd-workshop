@@ -36,14 +36,13 @@ Java version: 21.0.7, vendor: Eclipse Adoptium, runtime: /Users/otaviosantana/.s
 Default locale: en_US, platform encoding: UTF-8
 OS name: "mac os x", version: "15.6.1", arch: "aarch64", family: "mac"
 
-
 $ git --version
 git version 2.39.5 (Apple Git-154)
 
-❯ docker --version
+$ docker --version
 Docker version 28.3.2, build 578ccf6
 
-❯ docker compose version
+$ docker compose version
 Docker Compose version v2.39.1-desktop.1
 ```
 
