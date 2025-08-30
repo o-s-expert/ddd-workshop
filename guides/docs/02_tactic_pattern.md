@@ -24,7 +24,18 @@ classDiagram
 > An immutable object defined solely by its attributes; equality is based on value rather than identity.
 
 ```mermaid
+classDiagram
+  class Email {
+    -address : String
+    +Email(address)
+  }
 
+  class Money {
+    -amount : decimal
+    -currency : String
+    +Money(amount, currency)
+    +add(other: Money) : Money
+  }
 ```
 
 ## Aggregate – Consistency Boundary
