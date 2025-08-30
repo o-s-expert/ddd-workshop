@@ -59,7 +59,7 @@ mvn clean package
 
 The build and packaging should complete successfully.
 
-## Using Egon for Domain Modeling
+## Using Egon for Domain Modeling (Optional)
 
 In this workshop, you will use Egon.io to model the domain and its elements throughout the exercises. 
 
