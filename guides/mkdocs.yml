@@ -23,6 +23,10 @@ plugins:
         - more/sample_projects.md
   - git-revision-date-localized:
       type: iso_date
+  - mermaid2:
+      arguments:
+        theme: default
+        securityLevel: 'strict'
 
 extra:
   generator: false
