@@ -29,7 +29,7 @@ public class InMemoryProductRepository implements ProductRepository {
     }
 
     @Override
-    public void delete(String id) {
+    public void deleteById(String id) {
         store.remove(id);
     }
 }

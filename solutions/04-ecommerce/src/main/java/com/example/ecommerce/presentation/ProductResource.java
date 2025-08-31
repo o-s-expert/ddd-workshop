@@ -49,8 +49,8 @@ public class ProductResource {
 
     @DELETE
     @Path("/{id}")
-    public void deleteProductById(@PathParam("id") String id) {
-        service.delete(id);
+    public void deleteById(@PathParam("id") String id) {
+        service.deleteById(id);
     }
 
     @POST
