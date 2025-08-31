@@ -1,4 +1,4 @@
-package com.example.ecommerce;
+package com.example.ecommerce.domain;
 
 
 import com.example.ecommerce.infrastructure.AllFieldsVisibilityStrategy;
