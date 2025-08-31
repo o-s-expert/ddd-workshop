@@ -14,6 +14,8 @@ public interface ProductMapper {
     @Mapping(target = "price.amount", source = "dto.amount")
     Product toDomain(ProductRequest dto);
 
+    @Mapping(target = "currency", source = "price.currency")
+    @Mapping(target = "amount", source = "price.amount")
     ProductResponse toResponse(Product product);
 
     List<ProductResponse> toResponseList(List<Product> products);
