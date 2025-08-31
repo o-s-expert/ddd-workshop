@@ -23,5 +23,6 @@
     <modules>
         <module>01-ecommerce</module>
         <module>02-ecommerce</module>
+        <module>03-ecommerce</module>
     </modules>
 </project>
