@@ -10,7 +10,7 @@
         <relativePath/>
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>03-ecommerce</artifactId>
+    <artifactId>04-ecommerce</artifactId>
     <version>1.0.0</version>
 
     <properties>
