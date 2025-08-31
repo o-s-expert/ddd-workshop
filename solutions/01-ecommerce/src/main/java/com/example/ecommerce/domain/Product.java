@@ -1,14 +1,11 @@
 package com.example.ecommerce.domain;
 
 
-import com.example.ecommerce.infrastructure.AllFieldsVisibilityStrategy;
 import jakarta.json.bind.annotation.JsonbCreator;
 import jakarta.json.bind.annotation.JsonbProperty;
-import jakarta.json.bind.annotation.JsonbVisibility;
 
 import java.util.Objects;
 
-@JsonbVisibility(AllFieldsVisibilityStrategy.class)
 public class Product {
 
     private String id;
