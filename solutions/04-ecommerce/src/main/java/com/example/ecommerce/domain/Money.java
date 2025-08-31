@@ -1,6 +1,10 @@
 package com.example.ecommerce.domain;
 
+import jakarta.nosql.Column;
+import jakarta.nosql.Embeddable;
+
 import java.math.BigDecimal;
 
-public record Money(String currency, BigDecimal amount) {
+@Embeddable(Embeddable.EmbeddableType.GROUPING)
+public record Money(@Column String currency, @Column BigDecimal amount) {
 }
