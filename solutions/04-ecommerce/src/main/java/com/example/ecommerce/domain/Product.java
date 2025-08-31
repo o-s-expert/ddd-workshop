@@ -1,13 +1,22 @@
 package com.example.ecommerce.domain;
 
 
+import jakarta.nosql.Column;
+import jakarta.nosql.Entity;
+import jakarta.nosql.Id;
+
 import java.math.BigDecimal;
 import java.util.Objects;
 
+@Entity
 public class Product {
 
+    @Id
     private String id;
+
+    @Column
     private String name;
+    @Column
     private Money price;
 
 
@@ -15,6 +24,9 @@ public class Product {
         this.id = id;
         this.name = name;
         this.price = price;
+    }
+
+    Product() {
     }
 
     public String getId() {
