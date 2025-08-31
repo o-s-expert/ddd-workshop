@@ -2,12 +2,10 @@ package com.example.ecommerce.infrastructure.persistence;
 
 
 
-import com.example.ecommerce.annotations.Repository;
 import com.example.ecommerce.domain.Product;
 import com.example.ecommerce.domain.ProductRepository;
 import java.util.*;
 
-@Repository
 public class InMemoryProductRepository implements ProductRepository {
 
     private final Map<String, Product> store = new HashMap<>();
@@ -29,7 +27,7 @@ public class InMemoryProductRepository implements ProductRepository {
     }
 
     @Override
-    public void delete(String id) {
+    public void deleteById(String id) {
         store.remove(id);
     }
 }
