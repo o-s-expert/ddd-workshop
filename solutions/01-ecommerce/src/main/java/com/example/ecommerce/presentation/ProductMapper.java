@@ -9,7 +9,9 @@ import java.util.List;
 @Mapper(componentModel = "cdi")
 public interface ProductMapper {
 
-    @Mapping(target = "id", expression = "java(UUID.randomUUID().toString())")
+    @Mapping(target = "id", expression = "java(java.util.UUID.randomUUID().toString())")
+    @Mapping(target = "price.currency", source = "dto.currency")
+    @Mapping(target = "price.amount", source = "dto.amount")
     Product toDomain(ProductRequest dto);
 
     ProductResponse toResponse(Product product);

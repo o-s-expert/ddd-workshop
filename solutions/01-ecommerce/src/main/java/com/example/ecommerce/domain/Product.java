@@ -50,4 +50,8 @@ public class Product {
                 ", price=" + price +
                 '}';
     }
+
+    public static ProductBuilder builder() {
+        return new ProductBuilder();
+    }
 }
