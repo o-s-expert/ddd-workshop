@@ -16,7 +16,6 @@ public class Product {
     private Money price;
 
 
-
     @JsonbCreator
     public static Product of(@JsonbProperty("id") String id,
                              @JsonbProperty("name") String name,
@@ -28,6 +27,17 @@ public class Product {
         return product;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Money getPrice() {
+        return price;
+    }
 
     @Override
     public boolean equals(Object o) {
