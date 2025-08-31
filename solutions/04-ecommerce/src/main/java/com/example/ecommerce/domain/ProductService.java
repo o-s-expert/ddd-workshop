@@ -25,7 +25,7 @@ public class ProductService {
     }
 
     public void delete(String id) {
-        productRepository.delete(id);
+        productRepository.deleteById(id);
     }
 
     public Optional<Product> findById(String id) {
