@@ -1,6 +1,7 @@
 package com.example.ecommerce.domain;
 
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Product {
@@ -53,5 +54,9 @@ public class Product {
 
     public static ProductBuilder builder() {
         return new ProductBuilder();
+    }
+
+    public void update(BigDecimal amount) {
+        this.price = new Money(price.currency(), amount);
     }
 }
