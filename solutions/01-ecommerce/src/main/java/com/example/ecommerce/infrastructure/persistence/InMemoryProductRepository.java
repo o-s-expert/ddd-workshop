@@ -13,8 +13,8 @@ public class InMemoryProductRepository implements ProductRepository {
     private final Map<String, Product> store = new HashMap<>();
 
     @Override
-    public void save(Product product) {
-        store.put(product.getId(), product);
+    public Product save(Product product) {
+        return store.put(product.getId(), product);
     }
 
     @Override

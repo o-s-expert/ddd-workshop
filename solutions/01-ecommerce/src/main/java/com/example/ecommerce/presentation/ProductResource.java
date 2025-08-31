@@ -39,8 +39,8 @@ public class ProductResource {
 
     @GET
     @Path("/{id}")
-    public Product getProductById(@PathParam("id") String id) {
-        return productService.findById(id).orElseThrow(
+    public ProductResponse getProductById(@PathParam("id") String id) {
+        return productService.findById(id).map(this.mapper::toResponse).orElseThrow(
                 () -> new WebApplicationException("Product with id " + id + " not found",
                         Response.Status.NOT_FOUND));
     }
@@ -53,8 +53,9 @@ public class ProductResource {
     }
 
     @POST
-    public void insert(ProductRequest request) {
-        productService.save(mapper.toDomain(request));
+    public ProductResponse insert(ProductRequest request) {
+        Product product = productService.save(mapper.toDomain(request));
+        return mapper.toResponse(product);
     }
 
 }
