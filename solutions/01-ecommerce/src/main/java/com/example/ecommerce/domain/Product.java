@@ -1,9 +1,6 @@
 package com.example.ecommerce.domain;
 
 
-import jakarta.json.bind.annotation.JsonbCreator;
-import jakarta.json.bind.annotation.JsonbProperty;
-
 import java.util.Objects;
 
 public class Product {
@@ -13,15 +10,10 @@ public class Product {
     private Money price;
 
 
-    @JsonbCreator
-    public static Product of(@JsonbProperty("id") String id,
-                             @JsonbProperty("name") String name,
-                             @JsonbProperty("price") Money price) {
-        Product product = new Product();
-        product.id = id;
-        product.name = name;
-        product.price = price;
-        return product;
+    Product(String id, String name, Money price) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
     }
 
     public String getId() {
