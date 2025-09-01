@@ -14,6 +14,7 @@ Most of the workshop exercises involves usage of tools such as:
 * Command line (terminal). _If using Windows, PowerShell is recommended;_
 * REST client tools like cURL or postman _(Optional)_;
 * Docker and Docker Compose.
+* Postman (Optional)
 
 ```shell
 java -version
