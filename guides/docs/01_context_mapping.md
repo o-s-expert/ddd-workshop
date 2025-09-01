@@ -63,7 +63,7 @@ flowchart LR
   D1 -- "Conforms to" --> PL
   D1 -. "No influence on Upstream" .- U1
   D1 -. "No influence on Downstream" .- U1
-  ```
+```
 
 ## Anticorruption Layer
 
@@ -85,7 +85,7 @@ ACL["`Anticorruption Layer`"]
 U1 -- "Provides Model" --> ACL
 ACL -- "Translates & Protects" --> D1
 D1 -. "Own domain language preserved" .- D1
- ```
+```
 
 ## Published Language
 
