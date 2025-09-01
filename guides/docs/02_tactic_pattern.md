@@ -2,7 +2,7 @@
 
 To see the diagrams properly, please open them in [Mermaid Live Editor](https://mermaid-js.github.io/mermaid-live-editor).
 
-Or you can use the following link: https://github.com/o-s-expert/ddd-workshop/blob/main/guides/docs/02_tactic_pattern.md
+Or you can use the following link: [See at Github Page](https://github.com/o-s-expert/ddd-workshop/blob/main/guides/docs/02_tactic_pattern.md)
 
 ## Entity – Identity Matters
 
