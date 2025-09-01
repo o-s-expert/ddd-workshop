@@ -78,14 +78,12 @@ markdown_extensions:
   - pymdownx.superfences
   - attr_list
   - md_in_html
-  - pymdownx.superfences
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences
   - attr_list
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
@@ -99,3 +97,8 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
       clickable_checkbox: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
