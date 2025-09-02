@@ -4,6 +4,10 @@ Most of the workshop exercises involves usage of tools such as:
 - Developer IDE (e.g. VSCode, Eclipse, IntelliJ, ...)
 - Egon.io
 - CLI tools via terminal 
+- Maven
+- Docker
+- Docker Compose
+- Postman (Optional)
 
 ## Prerequisites
 
