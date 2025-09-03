@@ -21,18 +21,18 @@ public class ProductResource {
 
     private final ProductMapper mapper;
 
-    private final ProductService productService;
+    private final ProductService service;
 
     @Inject
-    public ProductResource(ProductMapper mapper, ProductService productService) {
+    public ProductResource(ProductMapper mapper, ProductService service) {
         this.mapper = mapper;
-        this.productService = productService;
+        this.service = service;
     }
 
 
     @GET
     public List<ProductResponse> getAllProducts() {
-        return productService.findAll().stream()
+        return service.findAll().stream()
                 .map(mapper::toResponse)
                 .toList();
     }
@@ -40,7 +40,7 @@ public class ProductResource {
     @GET
     @Path("/{id}")
     public ProductResponse getProductById(@PathParam("id") String id) {
-        return productService.findById(id).map(this.mapper::toResponse).orElseThrow(
+        return service.findById(id).map(this.mapper::toResponse).orElseThrow(
                 () -> new WebApplicationException("Product with id " + id + " not found",
                         Response.Status.NOT_FOUND));
     }
@@ -49,12 +49,12 @@ public class ProductResource {
     @DELETE
     @Path("/{id}")
     public void deleteById(@PathParam("id") String id) {
-        productService.deleteById(id);
+        service.deleteById(id);
     }
 
     @POST
     public ProductResponse insert(ProductRequest request) {
-        Product product = productService.save(mapper.toDomain(request));
+        Product product = service.save(mapper.toDomain(request));
         return mapper.toResponse(product);
     }
 
