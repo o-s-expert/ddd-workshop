@@ -30,7 +30,7 @@ public class UpdateProductPrice {
         }
         var event = new ProductPriceChanged(product.getId(), product.getPrice().amount(), price);
         this.productPriceChangedEvent.fire(event);
-        product.update(price);
         this.repository.save(product);
+        product.update(price);
     }
 }
