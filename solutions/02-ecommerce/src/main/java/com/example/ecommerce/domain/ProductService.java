@@ -10,34 +10,34 @@ import java.util.Optional;
 @ApplicationService
 public class ProductService {
 
-    private final ProductRepository productRepository;
+    private final ProductRepository repository;
 
     private final UpdateProductPrice updateProductPrice;
 
     @Inject
-    public ProductService(ProductRepository productRepository, UpdateProductPrice updateProductPrice) {
-        this.productRepository = productRepository;
+    public ProductService(ProductRepository repository, UpdateProductPrice updateProductPrice) {
+        this.repository = repository;
         this.updateProductPrice = updateProductPrice;
     }
 
     public Product save(Product product) {
-        return productRepository.save(product);
+        return repository.save(product);
     }
 
     public void deleteById(String id) {
-        productRepository.deleteById(id);
+        repository.deleteById(id);
     }
 
     public Optional<Product> findById(String id) {
-        return productRepository.findById(id);
+        return repository.findById(id);
     }
 
     public List<Product> findAll() {
-        return productRepository.findAll();
+        return repository.findAll();
     }
 
     public void changePrice(String id, BigDecimal price) {
-        Product product = productRepository.findById(id)
+        Product product = repository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Product with id " + id + " not found"));
         //we could improve this exception as well.
         this.updateProductPrice.execute(product, price);
