@@ -11,7 +11,7 @@ Or you can use the following link: [See at Github Page](https://github.com/o-s-e
 ```mermaid
 classDiagram
   class Customer {
-    +id : UUID
+    -id : UUID
     -name : String
     -email : String
     +changeEmail(newEmail) : void
@@ -46,7 +46,7 @@ classDiagram
 classDiagram
   class Order {
     <<aggregate root>>
-    +id : UUID
+    -id : UUID
     -status : OrderStatus
     -items : List~OrderItem~
     +addItem(product: Product, quantity: int) : void
@@ -58,14 +58,14 @@ classDiagram
 
   class OrderItem {
     <<entity>>
-    +id : UUID
+    -id : UUID
     -product : Product
     -quantity : int
   }
 
   class Product {
     <<entity>>
-    +id : UUID
+    -id : UUID
     +name : String
   }
 
@@ -85,7 +85,7 @@ classDiagram
 classDiagram
     class Order {
 <<aggregate root>>
-+id : UUID
+-id : UUID
 }
 
 class OrderRepository {
@@ -109,7 +109,7 @@ OrderRepository --> Order : returns/manages
 classDiagram
   class Order {
     <<aggregate root>>
-    +id : UUID
+    -id : UUID
     -status : OrderStatus
   }
 
@@ -129,7 +129,7 @@ classDiagram
 classDiagram
   class Order {
     <<aggregate root>>
-    +id : UUID
+    -id : UUID
     -status : OrderStatus
   }
 
@@ -150,13 +150,13 @@ classDiagram
 classDiagram
   class Order {
     <<aggregate root>>
-    +id : UUID
+    -id : UUID
     +confirm() : void
   }
 
   class OrderConfirmedEvent {
     <<domain event>>
-    +orderId : UUID
+    -orderId : UUID
     +occurredOn : DateTime
   }
   Order --> OrderConfirmedEvent : "publishes"
@@ -171,7 +171,7 @@ classDiagram
 classDiagram
     class Order {
 <<aggregate root>>
-+id : UUID
+-id : UUID
 +confirm() : void
 }
 
