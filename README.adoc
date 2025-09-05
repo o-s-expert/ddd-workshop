@@ -34,7 +34,6 @@ This course aims to apply the DDD concepts and design more accessible and be rea
 * https://egon.io/[Egon.io]
 * https://fonts.google.com/icons?selected=Material+Icons[Icons]
 
-
 == Books
 
 * https://www.amazon.com.br/dp/1098100131[Learning Domain-Driven Design: Aligning Software Architecture and Business Strategy]
