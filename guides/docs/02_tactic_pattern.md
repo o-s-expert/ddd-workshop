@@ -157,7 +157,7 @@ classDiagram
   class OrderConfirmedEvent {
     <<domain event>>
     -orderId : UUID
-    +occurredOn : DateTime
+    -occurredOn : DateTime
   }
   Order --> OrderConfirmedEvent : "publishes"
 ```
