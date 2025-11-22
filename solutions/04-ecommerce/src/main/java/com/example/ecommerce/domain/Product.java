@@ -21,7 +21,7 @@ public class Product {
 
 
     Product(String id, String name, Money price) {
-        this.id = id;
+        this.id = Objects.requireNonNull(id);
         this.name = name;
         this.price = price;
     }
