@@ -25,5 +25,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Inherited
 @Retention(RUNTIME)
 @Target(ElementType.TYPE)
+@org.jmolecules.ddd.annotation.Service
 public @interface DomainService {
 }
