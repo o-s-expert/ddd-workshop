@@ -2,6 +2,7 @@ package com.example.ecommerce.annotations;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.inject.Stereotype;
+import org.jmolecules.architecture.layered.ApplicationLayer;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
@@ -25,5 +26,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Inherited
 @Retention(RUNTIME)
 @Target(ElementType.TYPE)
+@ApplicationLayer
 public @interface ApplicationService {
 }
