@@ -36,6 +36,7 @@ This course aims to apply the DDD concepts and design more accessible and be rea
 
 == Books
 
+* https://bpbonline.com/products/domain-driven-design-with-java[Domain-driven Design with Java]
 * https://www.amazon.com.br/dp/1098100131[Learning Domain-Driven Design: Aligning Software Architecture and Business Strategy]
 * https://www.infoq.com/minibooks/domain-driven-design-quickly/[Domain Driven Design Quickly]
 * https://www.amazon.com/dp/0321125215/[Domain-Driven Design: Tackling Complexity in the Heart of Software]
