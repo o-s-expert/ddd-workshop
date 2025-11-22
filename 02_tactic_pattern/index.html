@@ -1,0 +1,517 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="DDD in action Workshop: Strategies and tactics for Java solutions" name="description"/>
+<meta content="Karina Varela and Otávio Santana" name="author"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-8.3.8" name="generator"/>
+<title>2 Tactic Patterns - DDD in Action: Strategies and tactics for Java solutions</title>
+<link href="../assets/stylesheets/main.1d29e8d0.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
+<style>:root{--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 17a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H9.46c.35.61.54 1.3.54 2h10v11h-9v2m4-10v2H9v13H7v-6H5v6H3v-8H1.5V9a2 2 0 0 1 2-2H15M8 4a2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2 2 2 0 0 1 2 2Z"/></svg>');--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m13.13 22.19-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27l-2.77 6.1M5.64 12.5l-3.83-1.63 6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M21.61 2.39S16.66.269 11 5.93c-2.19 2.19-3.5 4.6-4.35 6.71-.28.75-.09 1.57.46 2.13l2.13 2.12c.55.56 1.37.74 2.12.46A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61m-7.07 7.07c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83-.78.78-2.05.78-2.83 0m-5.66 7.07-1.41-1.41 1.41 1.41M6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22h1.41M2 22h1.41l4.77-4.76-1.42-1.41L2 20.59V22m0-2.83 4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76v1.41Z"/></svg>');}</style>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="light-blue" data-md-color-primary="blue" data-md-color-scheme="slate" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#2-tactic-patterns">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DDD in Action: Strategies and tactics for Java solutions" class="md-header__button md-logo" data-md-component="logo" href=".." title="DDD in Action: Strategies and tactics for Java solutions">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            DDD in Action: Strategies and tactics for Java solutions
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              2 Tactic Patterns
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="light-blue" data-md-color-media="" data-md-color-primary="blue" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="light-blue" data-md-color-media="" data-md-color-primary="blue" data-md-color-scheme="default" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ultimate-engineer/ddd-workshop" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 480 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DDD in Action: Strategies and tactics for Java solutions" class="md-nav__button md-logo" data-md-component="logo" href=".." title="DDD in Action: Strategies and tactics for Java solutions">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    DDD in Action: Strategies and tactics for Java solutions
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ultimate-engineer/ddd-workshop" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 480 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+        About this workshop
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../00_environment/">
+        Preparing your environment
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../01_context_mapping/">
+        1 Understanding Context Mapping
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          2 Tactic Patterns
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        2 Tactic Patterns
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#entity-identity-matters">
+    Entity – Identity Matters
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#value-object-essence-over-identity">
+    Value Object – Essence over Identity
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#aggregate-consistency-boundary">
+    Aggregate – Consistency Boundary
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#repository-gateway-to-aggregates">
+    Repository – Gateway to Aggregates
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#factory-controlled-creation">
+    Factory – Controlled Creation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#domain-service-logic-without-a-home">
+    Domain Service – Logic Without a Home
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#domain-event-something-happened">
+    Domain Event – Something Happened
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#application-service-orchestrating-use-cases">
+    Application Service - Orchestrating Use Cases
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../03_01_lab/">
+        3 Lab 1: Hello World MicroProfile
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04_02_lab/">
+        4 -Lab 2 -Stereotypes on CDI
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../05_03_lab/">
+        5 -Lab 3 -Events on CDI
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06_04_lab/">
+        6 -Lab 4 Exploring ArchUnit
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../07_05_lab/">
+        7 - Lab 5 Exploring Jakarta Data
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#entity-identity-matters">
+    Entity – Identity Matters
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#value-object-essence-over-identity">
+    Value Object – Essence over Identity
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#aggregate-consistency-boundary">
+    Aggregate – Consistency Boundary
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#repository-gateway-to-aggregates">
+    Repository – Gateway to Aggregates
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#factory-controlled-creation">
+    Factory – Controlled Creation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#domain-service-logic-without-a-home">
+    Domain Service – Logic Without a Home
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#domain-event-something-happened">
+    Domain Event – Something Happened
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#application-service-orchestrating-use-cases">
+    Application Service - Orchestrating Use Cases
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="2-tactic-patterns"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.</span> 2 Tactic Patterns</h1>
+<p>To see the diagrams properly, please open them in <a href="https://mermaid-js.github.io/mermaid-live-editor">Mermaid Live Editor</a>.</p>
+<p>Or you can use the following link: <a href="https://github.com/o-s-expert/ddd-workshop/blob/main/guides/docs/02_tactic_pattern.md">See at Github Page</a></p>
+<h2 id="entity-identity-matters"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.1</span> Entity – Identity Matters</h2>
+<blockquote>
+<p>An object defined by a unique identity that persists over time, even if its attributes change.</p>
+</blockquote>
+<pre class="mermaid"><code>classDiagram
+  class Customer {
+    -id : UUID
+    -name : String
+    -email : String
+    +changeEmail(newEmail) : void
+  }</code></pre>
+<h2 id="value-object-essence-over-identity"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2</span> Value Object – Essence over Identity</h2>
+<blockquote>
+<p>An immutable object defined solely by its attributes; equality is based on value rather than identity.</p>
+</blockquote>
+<pre class="mermaid"><code>classDiagram
+  class Email {
+    -address : String
+    +Email(address)
+  }
+
+  class Money {
+    -amount : decimal
+    -currency : String
+    +Money(amount, currency)
+    +add(other: Money) : Money
+  }</code></pre>
+<h2 id="aggregate-consistency-boundary"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.3</span> Aggregate – Consistency Boundary</h2>
+<blockquote>
+<p>A cluster of entities and value objects treated as a single unit, with a root entity ensuring business rules and consistency.</p>
+</blockquote>
+<pre class="mermaid"><code>classDiagram
+  class Order {
+    &lt;&lt;aggregate root&gt;&gt;
+    -id : UUID
+    -status : OrderStatus
+    -items : List~OrderItem~
+    +addItem(product: Product, quantity: int) : void
+    +changeItemQuantity(product: Product, quantity: int) : void
+    +removeItem(product: Product) : void
+    +confirm() : void
+    -enforceInvariants() : void
+  }
+
+  class OrderItem {
+    &lt;&lt;entity&gt;&gt;
+    -id : UUID
+    -product : Product
+    -quantity : int
+  }
+
+  class Product {
+    &lt;&lt;entity&gt;&gt;
+    -id : UUID
+    +name : String
+  }
+
+  class OrderStatus
+
+  Order "1" o-- "1..*" OrderItem
+  OrderItem --&gt; Product
+  Order --&gt; OrderStatus
+</code></pre>
+<h2 id="repository-gateway-to-aggregates"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.4</span> Repository – Gateway to Aggregates</h2>
+<blockquote>
+<p>An abstraction that provides controlled access to aggregates, handling persistence while keeping the domain pure.</p>
+</blockquote>
+<pre class="mermaid"><code>classDiagram
+    class Order {
+&lt;&lt;aggregate root&gt;&gt;
+-id : UUID
+}
+
+class OrderRepository {
+&lt;&lt;interface&gt;&gt;
++save(order: Order) : void
++findById(id: UUID) : Order?
++delete(id: UUID) : void
++findByCustomer(customerId: UUID) : List~Order~
+}
+
+OrderRepository --&gt; Order : returns/manages
+</code></pre>
+<h2 id="factory-controlled-creation"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.5</span> Factory – Controlled Creation</h2>
+<blockquote>
+<p>A mechanism that encapsulates complex creation logic, ensuring invariants are satisfied when building aggregates or entities.</p>
+</blockquote>
+<pre class="mermaid"><code>classDiagram
+  class Order {
+    &lt;&lt;aggregate root&gt;&gt;
+    -id : UUID
+    -status : OrderStatus
+  }
+
+  class OrderFactory {
+    &lt;&lt;factory&gt;&gt;
+    +create(customerId: UUID) : Order
+    +reconstruct(id: UUID, status: OrderStatus) : Order
+  }
+  OrderFactory --&gt; Order : creates</code></pre>
+<h2 id="domain-service-logic-without-a-home"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.6</span> Domain Service – Logic Without a Home</h2>
+<blockquote>
+<p>Encapsulates domain behavior that does not naturally belong to an entity or value object, but is still part of the core domain.</p>
+</blockquote>
+<pre class="mermaid"><code>classDiagram
+  class Order {
+    &lt;&lt;aggregate root&gt;&gt;
+    -id : UUID
+    -status : OrderStatus
+  }
+
+  class OrderPricingService {
+    &lt;&lt;domain service&gt;&gt;
+    +calculateTotal(order: Order) : Money
+    +applyBusinessRules(order: Order) : void
+  }
+
+  OrderPricingService --&gt; Order : operates on</code></pre>
+<h2 id="domain-event-something-happened"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.7</span> Domain Event – Something Happened</h2>
+<blockquote>
+<p>Represents a significant occurrence in the domain, capturing a past fact and enabling communication across the system.</p>
+</blockquote>
+<pre class="mermaid"><code>classDiagram
+  class Order {
+    &lt;&lt;aggregate root&gt;&gt;
+    -id : UUID
+    +confirm() : void
+  }
+
+  class OrderConfirmedEvent {
+    &lt;&lt;domain event&gt;&gt;
+    -orderId : UUID
+    -occurredOn : DateTime
+  }
+  Order --&gt; OrderConfirmedEvent : "publishes"</code></pre>
+<h2 id="application-service-orchestrating-use-cases"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.8</span> Application Service - Orchestrating Use Cases</h2>
+<blockquote>
+<p>An application service coordinates workflows by invoking domain objects and repositories, ensuring the correct sequence of operations. It manages transactions, orchestration, and security while delegating all business rules to the domain layer, keeping the domain pure and exposing use cases to the outside world.</p>
+</blockquote>
+<pre class="mermaid"><code>classDiagram
+    class Order {
+&lt;&lt;aggregate root&gt;&gt;
+-id : UUID
++confirm() : void
+}
+
+class OrderRepository {
+&lt;&lt;repository&gt;&gt;
++findById(id: UUID) : Order
++save(order: Order) : void
+}
+
+class OrderApplicationService {
+&lt;&lt;application service&gt;&gt;
++confirmOrder(orderId: UUID) : void
+}
+
+OrderApplicationService --&gt; OrderRepository : uses
+OrderApplicationService --&gt; Order : orchestrates</code></pre>
+<hr/>
+<div class="md-source-file">
+<small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="November 22, 2025 19:06:39 UTC">2025-11-22</span>
+</small>
+</div>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            Back to top
+          </a>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: 1 Understanding Context Mapping" class="md-footer__link md-footer__link--prev" href="../01_context_mapping/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              1 Understanding Context Mapping
+            </div>
+</div>
+</a>
+<a aria-label="Next: 3 Lab 1: Hello World MicroProfile" class="md-footer__link md-footer__link--next" href="../03_01_lab/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              3 Lab 1: Hello World MicroProfile
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Developed with Ultimate Sophistication
+    </div>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": ["navigation.indexes", "navigation.instant", "navigation.tracking", "navigation.prune", "toc.follow", "navigation.top", "content.code.annotate"], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.0238f547.min.js"></script>
+</body>
+</html>
