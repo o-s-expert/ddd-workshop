@@ -3,6 +3,7 @@ package com.example.ecommerce.annotations;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.inject.Stereotype;
 import org.jmolecules.architecture.layered.DomainLayer;
+import org.jvnet.hk2.annotations.Service;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
@@ -27,7 +28,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Inherited
 @Retention(RUNTIME)
 @Target(ElementType.TYPE)
-@org.jmolecules.ddd.annotation.Service
+@Service
 @DomainLayer
 public @interface DomainService {
 }
